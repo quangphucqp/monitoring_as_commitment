@@ -1,0 +1,127 @@
+{{ block title }}
+    Planning
+{{ endblock }}
+{{ block content }}
+
+    <style>
+        .mgslider-wrapper {
+            border-spacing: 10px;
+        }
+        .mgslider-limit {
+            width: 10%;
+            min-width: 75px;
+            height: 40px;
+            margin: 100px;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #888;
+        }
+        .mgslider-limit, .mgslider-value {
+            font-variant-numeric: tabular-nums;
+        }
+        .mgslider-show, .mgslider-value {
+            display: block;
+            visibility: visible;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .mgslider-before {
+            height: 16px;
+            width: 100%;
+            background: #1e5bff;
+            display: block;
+            cursor: pointer;
+        }
+        .mgslider-range {
+            height: 16px;
+            width: 100%;
+            display: none;
+            visibility: hidden;
+            text-align: center;
+        }
+        .mgslider-feedback {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+    </style>
+    <p>You can make a plan by allocating how many tasks of additional work you want to complete in the session one week from today (Week 2) and two weeks from today (Week 3) by adjusting the slider. Remember, the plan does not include the minimum work, which you need to do in each week.</p>
+    <p></p>
+    <p id="guidance-text" >Adjust the pointer on the slider to set your plan. The further you move the pointer into a week, the more tasks you plan to complete in that week.</p>
+    <p></p>
+    <p id="click-blue-bar-text" >Click on the blue bar below to reveal the slider.</p>
+    <p></p>
+
+    <div id="slider-container">
+      <table id='slider-wrapper' class='mgslider-wrapper' border='0'>
+        <tr>
+          <td class='mgslider-limit'><b>Week 2</b></td>
+          <td width='90%'>
+            <div id='slider-before' class='mgslider-before' ></div>
+            <input type='range' name="allocation_week3" id='slider2' min='0' max='50' step='1' value='' required class='mgslider-range' oninput="updateValue()">
+          </td>
+          <td class='mgslider-limit'><b>Week 3</b></td>
+        </tr>
+        <tr class='mgslider-feedback'>
+          <td></td>
+          <td id='slider-show' class='mgslider-show' >Week 2 Allocation: <b><span id='slider-cur' class='mgslider-value'></span></b></td>
+          <td id='slider-show2' class='mgslider-show'>Week 3 Allocation: <b><span id='slider-cur2' class='mgslider-value'></span></b></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <button id="next-button" disabled>Next</button>
+
+    <script>
+        // Select the classes
+        const sliderbefore = document.querySelector('.mgslider-before');
+        const mgsliderrange = document.querySelector('.mgslider-range');
+
+        // Select the id
+        const Slider2 = document.getElementById('slider2');
+        const nextButton = document.getElementById('next-button');
+
+        // Initial interaction with slider
+        let sliderClickCounter = 0;
+
+        // Add event listener when the user clicks on the blue bar
+        sliderbefore.addEventListener('click', function(event) {
+            sliderbefore.style.display = 'none';
+            mgsliderrange.style.display = 'block';
+            mgsliderrange.style.visibility = 'visible';
+
+            // Enable the "next" button after a 5-second delay
+            setTimeout(function() {
+                nextButton.disabled = false;
+            }, 5000); // 5000 milliseconds = 5 seconds
+
+            //register the click position on the blue bar and set the slider2 value accordingly
+            const clickPosition = event.clientX;
+            const slider2Width = Slider2.offsetWidth;
+            const slider2Left = Slider2.offsetLeft;
+            const thumbPosition = Slider2.getBoundingClientRect().left;
+            const relativePosition = clickPosition - thumbPosition;
+            const slider2Value = Math.round(relativePosition / slider2Width * 50);
+
+            Slider2.value = slider2Value;
+
+            //Immediately show allocation values
+            updateValue();
+        });
+
+         function updateValue() {
+            let ValueActual = document.getElementById("slider2").value;
+            let ValueWeek2 = `${50 - ValueActual}`;
+            let ValueWeek3 = ValueActual;
+            document.getElementById("slider-cur").innerHTML = ValueWeek2;
+            document.getElementById("slider-cur2").innerHTML = ValueWeek3;
+        }
+
+     </script>
+
+
+{{ formfield_errors 'allocation_week3' }}
+
+{{ endblock }}

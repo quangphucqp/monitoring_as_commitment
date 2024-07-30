@@ -1,0 +1,30 @@
+{{ block title }}
+    Payment Details
+{{ endblock }}
+{{ block content }}
+
+        <style>
+        .important-text {
+            font-weight: bold;
+            color: #4c4c4c;
+        }
+    </style>
+
+    <p>We kindly ask you to provide us your IBAN information to proceed payment. Please be assured that your personal information will be kept confidential and used only for the purpose of payment.</p>
+    <p>Please fill in the required fields below, making sure the information provided is accurate and updated.</p>
+
+    <form method="post">
+
+    <div class="form-group">
+        <label for="personal_code" class="important-text">Personal Code</label>
+        <input type="personal_code" class="form-control" id="personal_code" name="personal_code" required>
+        <small class="form-text text-muted">Please provide your personal code.</small>
+        <p></p>
+        <label for="iban" class="important-text">IBAN (International Bank Account Number)</label>
+        <input type="text" class="form-control" id="iban" name="iban" placeholder="NL00 XXXX 0000 0000 00" required>
+        <small class="form-text text-muted">Please provide your IBAN for payment processing. This will be used only for transactions related to this study.</small>
+    </div>
+
+    {{ next_button }}
+
+{{ endblock }}

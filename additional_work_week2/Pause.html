@@ -1,0 +1,22 @@
+
+{{ block content }}
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+
+    <p>You have completed <strong>{{ tasks_completed }}</strong> tasks of the additional work.</p>
+    <br>
+    <p>Your progress has been saved. If you decide to stop working today, you can safely close your browser.</p>
+    <p>The remaining additional tasks will be postponed till next week if you do not return.</p>
+    <br>
+    <p>Press "Continue" button if you want to continue working today.</p>
+    <div style="text-align:right;">
+    <button name="pause" value="False" class="btn btn-outline-primary pause-btn" style="width: 100px; height: 40px; margin-top: 20px; margin-right: 50px;">Continue</button>
+    </div>
+
+{{ endblock }}
+
+

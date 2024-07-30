@@ -1,0 +1,15 @@
+
+{{ block content }}
+
+    <p>You have completed <strong>{{ tasks_completed }}</strong> tasks of the additional work.</p>
+    <br>
+    <p>If you decide to take a break now, you can still return to work on the additional work later today. </p>
+    <p>The remaining additional tasks will be postponed till next week if you do not return.</p>
+    <br>
+    <p>Do you want to take a break?</p>
+    <button name="pause" value="True" class="btn btn-outline-primary pause-btn" style="width: 100px; height: 40px; margin-top: 20px; margin-right: 50px;">Yes</button>
+    <button name="pause" value="False" class="btn btn-outline-primary pause-btn" style="width: 100px; height: 40px; margin-top: 20px; margin-left: 50px;">No</button>
+
+{{ endblock }}
+
+

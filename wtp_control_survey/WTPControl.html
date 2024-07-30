@@ -1,0 +1,85 @@
+{{ block title }}
+    Survey - Part 3
+{{ endblock }}
+{{ block content }}
+  <p>In this section, we ask how much you would be willing to pay for a monitoring service. Everything remains the same, except for one detail: we can provide you a monitoring service. The monitor will send you reminder messages via Whatsapp when the session is closing yet you have not completed the number of tasks that you initially planned. In addition, at the end of Week 2 session, if you do not meet your plan, the monitor will send you a message via Whatsapp to suggest you work harder in Week 3 so that you can complete all additional work.  This monitoring service is provided to help you meet the deadlines and ensure that you are able to complete all the necessary work.</p>
+  <p></p>
+  <p>On a scale of 0 to 10, with 0 being "Not at all useful" and 10 being "Extremely useful", how useful do you think the monitoring service is to you? “Useful” means that the monitoring service can help you meet your plan.</p>
+  {{ form.useful }}
+  <p></p>
+  <p>If you could receive this monitoring service for free, would you accept it?</p>
+  {{ form.accept_if_free }}
+  <p></p>
+  <p>Suppose you could purchase this monitoring service. We will now present to you two options, A and B, under different situations. We would like to know which option you would choose for each of these situations. </p>
+
+        <table class="table" style="width: 60%;">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" style="text-align:center">Option A</th>
+            <th scope="col"></th>
+            <th scope="col" style="text-align:center">Option B</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" >1</th>
+            <td style="text-align:center"> Monitoring service </td>
+            <td style="font-weight: bold">{{ form.wtp_choice_05 }}</td>
+            <td style="text-align:center"> 0.5 Euros  </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td style="text-align:center"> Monitoring service </td>
+            <td style="font-weight: bold">{{ form.wtp_choice_10 }}</td>
+            <td style="text-align:center"> 1.0 Euros  </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td style="text-align:center"> Monitoring service </td>
+            <td style="font-weight: bold">{{ form.wtp_choice_15 }}</td>
+            <td style="text-align:center"> 1.5 Euros  </td>
+          <tr>
+            <th scope="row">4</th>
+            <td style="text-align:center"> Monitoring service </td>
+            <td style="font-weight: bold">{{ form.wtp_choice_20 }}</td>
+            <td style="text-align:center"> 2.0 Euros  </td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td style="text-align:center"> Monitoring service </td>
+            <td style="font-weight: bold">{{ form.wtp_choice_25 }}</td>
+            <td style="text-align:center"> 2.5 Euros  </td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td style="text-align:center"> Monitoring service </td>
+            <td style="font-weight: bold">{{ form.wtp_choice_30 }}</td>
+            <td style="text-align:center"> 3.0 Euros  </td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td style="text-align:center"> Monitoring service </td>
+            <td style="font-weight: bold">{{ form.wtp_choice_40 }}</td>
+            <td style="text-align:center"> 4.0 Euros  </td>
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td style="text-align:center"> Monitoring service </td>
+            <td style="font-weight: bold">{{ form.wtp_choice_50 }}</td>
+            <td style="text-align:center"> 5.0 Euros  </td>
+          </tr>
+          <tr>
+            <th scope="row">9</th>
+            <td style="text-align:center"> Monitoring service </td>
+            <td style="font-weight: bold">{{ form.wtp_choice_60 }}</td>
+            <td style="text-align:center"> 6.0 Euros  </td>
+          </tr>
+        </tbody>
+        </table>
+
+
+    {{ next_button }}
+
+{{ endblock }}

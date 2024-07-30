@@ -1,0 +1,28 @@
+{% load otree static %}
+{% block title %}
+    Setting up
+{% endblock %}
+
+{% block content %}
+
+    <p>To initiate a "handshake" with the monitor, you are requested to send a message containing your 4-character personal code to the monitor's Whatsapp. You do this by typing your personal code into Whatsapp and send a message. Please make sure that you send the code accurately.</p>
+    <p>The monitor's Whatsapp is at <b>{{ phone_number }}</b>. Please use the following QR code to initiate the handshake:</p>
+    <div style="text-align:right;">
+        <img src="{% static 'monitor/qr_code.jpg' %}" alt="QR code" width="200" height="200">
+    </div>
+    <p>Make sure to send the message before continuing to next page.</p>
+
+    <button id="next-button" disabled>Next</button>
+
+    <script>
+
+        // Get the button:
+        const nextButton = document.getElementById('next-button');
+
+        // Enable the "next" button after a delay
+        setTimeout(function() {
+            nextButton.disabled = false;
+        }, 12000); // 7000 milliseconds = 7 seconds
+    </script>
+
+{% endblock %}

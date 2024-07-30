@@ -1,0 +1,22 @@
+{% extends 'global/Page.html' %}
+{% load static %}
+
+{% block title %}
+    Consent
+{% endblock %}
+
+{% block content %}
+
+    <p>Now that we have explained the study, you are free to leave if you would like to choose not to participate in the study. Otherwise, please give your consent to continue.</p>
+    <br>
+    <p>I hereby agree to participate in this study, which has been approved by the Institutional Review Board (IRB) of the Tilburg School of Economics and Management ({{irb_number}}).</p>
+    <p>I understand that participation is voluntary. I am aware that my participation is required in each of the three consecutive weeks of the study, as I will be completing a job over time. I understand that I will only receive a completion payment of 18 euros upon successfully completing all three weeks of participation. I also understand that I can refuse to participate, and that I can withdraw from taking part in this research after it has started, without providing any explanation. I can withdraw without any negative consequences and will receive a participation payment of 3 euros.</p>
+    <p>I understand that personal information (email address, phone number, IBAN) will be collected only for the purpose of contacting me and processing payments. Only fully anonymized data from this study will be published. The anonymized data will be stored for at least 10 years. See also <a href="https://www.tilburguniversity.edu/privacy" target="_blank">www.tilburguniversity.edu/privacy</a>.</p>
+    <br>
+    <p>If you have any remarks regarding this research, you can contact Phuc Phung via <a href="mailto:q.p.phung@uvt.nl">q.p.phung@uvt.nl</a> or the Institutional Review Board of Tilburg School of Economics and Management via <a href="mailto:irb-tisem@uvt.nl">irb-tisem@uvt.nl</a>.</p>
+
+<strong>{% formfield player.consent label="" %}</strong>
+
+  {% next_button %}
+
+{% endblock %}
